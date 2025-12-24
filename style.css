@@ -1,0 +1,194 @@
+/* General Body Styling with Advanced Background */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(45deg, #ff69b4, #ffb6c1, #87ceeb); /* Multi-color gradient */
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite; /* Animated background */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated Background */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header with Glow Effect */
+h1 {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 2px 2px 4px rgba(0,0,0,0.5);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Decorative Pseudo-Element (Balloons) */
+h1::before {
+    content: "🎈🎂";
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    font-size: 1.5em;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Input and Button with Advanced Styling */
+#nameInput {
+    padding: 12px;
+    font-size: 1.2em;
+    border: 2px solid #ff69b4;
+    border-radius: 20px;
+    margin-right: 10px;
+    width: 250px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#nameInput:focus {
+    outline: none;
+    border-color: #ff1493;
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 1.2em;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Wishes Section with Fade and Slide */
+#wishes {
+    display: none;
+    margin-top: 30px;
+    animation: slideIn 1s ease-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+#wishes.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Greeting Text with Typing Effect */
+#greeting {
+    font-size: 2em;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #fff;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Cards Container with CSS Grid */
+#cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin: 20px 0;
+}
+
+/* Individual Card Styling with Rotation and Confetti */
+#cards img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease, box-shadow 0.3s;
+    animation: cardAppear 1s ease-out;
+    position: relative;
+}
+
+#cards img:hover {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+/* Confetti Effect (Pseudo-Element) */
+#cards img::after {
+    content: "✨";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5em;
+    animation: confetti 2s ease-in-out infinite;
+}
+
+/* Music Player */
+#music {
+    margin-top: 20px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+/* Countdown Timer Styling */
+#countdown {
+    font-size: 1.5em;
+    color: #fff;
+    margin-top: 10px;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #fff; }
+}
+
+@keyframes cardAppear {
+    from { opacity: 0; transform: scale(0.8) rotate(-10deg); }
+    to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes confetti {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 { font-size: 2em; }
+    #nameInput { width: 200px; }
+    #cards { grid-template-columns: 1fr; }
+    #music { width: 250px; }
+}
